@@ -192,6 +192,7 @@ static void lcd_page_render()
     bc_system_pll_enable();
 
     bc_module_lcd_clear();
+    bc_module_lcd_set_rotation(BC_MODULE_LCD_ROTATION_180);
 
     if ((page_index <= MAX_PAGE_INDEX) && (page_index != PAGE_INDEX_MENU))
     {
@@ -271,7 +272,7 @@ void lcd_event_handler(bc_module_lcd_event_t event, void *event_param)
 {
     (void) event_param;
 
-    if (event == BC_MODULE_LCD_EVENT_LEFT_CLICK)
+    if (event == BC_MODULE_LCD_EVENT_RIGHT_CLICK)
     {
         if ((page_index != PAGE_INDEX_MENU))
         {
@@ -297,7 +298,7 @@ void lcd_event_handler(bc_module_lcd_event_t event, void *event_param)
         left_event_count++;
         //bc_radio_pub_event_count(BC_RADIO_PUB_EVENT_LCD_BUTTON_LEFT, &left_event_count);
     }
-    else if(event == BC_MODULE_LCD_EVENT_RIGHT_CLICK)
+    else if(event == BC_MODULE_LCD_EVENT_LEFT_CLICK)
     {
         if ((page_index != PAGE_INDEX_MENU) || (menu_item == 0))
         {
