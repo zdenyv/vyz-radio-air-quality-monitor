@@ -97,6 +97,8 @@ static void lcd_page_render()
     twr_system_pll_enable();
 
     twr_module_lcd_clear();
+    twr_module_lcd_set_rotation(TWR_MODULE_LCD_ROTATION_180);
+
 
     if ((page_index <= MAX_PAGE_INDEX) && (page_index != PAGE_INDEX_MENU))
     {
@@ -176,7 +178,7 @@ void lcd_event_handler(twr_module_lcd_event_t event, void *event_param)
 {
     (void) event_param;
 
-    if (event == TWR_MODULE_LCD_EVENT_LEFT_CLICK)
+    if (event == TWR_MODULE_LCD_EVENT_RIGHT_CLICK)
     {
         if ((page_index != PAGE_INDEX_MENU))
         {
@@ -202,7 +204,7 @@ void lcd_event_handler(twr_module_lcd_event_t event, void *event_param)
         left_event_count++;
         //twr_radio_pub_event_count(TWR_RADIO_PUB_EVENT_LCD_BUTTON_LEFT, &left_event_count);
     }
-    else if(event == TWR_MODULE_LCD_EVENT_RIGHT_CLICK)
+    else if(event == TWR_MODULE_LCD_EVENT_LEFT_CLICK)
     {
         if ((page_index != PAGE_INDEX_MENU) || (menu_item == 0))
         {
