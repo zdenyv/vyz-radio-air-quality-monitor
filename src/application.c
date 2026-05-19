@@ -477,7 +477,7 @@ void application_init(void)
     twr_module_battery_set_event_handler(battery_event_handler, NULL);
     twr_module_battery_set_update_interval(BATTERY_UPDATE_INTERVAL);
 
-    twr_radio_pairing_request("air-quality-monitor", VERSION);
+    twr_radio_pairing_request("air-quality-monitor", FW_VERSION);
 
     twr_led_pulse(&led, 2000);
 }

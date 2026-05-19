@@ -1,7 +1,7 @@
 #ifndef _APPLICATION_H
 #define _APPLICATION_H
 
-#define VERSION "Zdeny-1.1"
+#define FW_VERSION "Zdeny-1.1"
 
 #include <twr.h>
 #include <bcl.h>
